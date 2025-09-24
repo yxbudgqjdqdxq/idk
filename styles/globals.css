@@ -129,3 +129,25 @@ body::before {
   box-shadow: 0 16px 36px rgba(0,0,0,0.18);
   background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
 }
+/* Sexy glossy buttons for paragraph list */
+.para-button {
+  display: block;
+  width: 100%;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 40%, #fad0c4 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.para-button:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
