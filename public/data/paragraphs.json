@@ -1,13 +1,42 @@
-import { useRouter } from 'next/router'
-
-export default function Home() {
-  const router = useRouter()
-
-  return (
-    <div className="landing">
-      <h1 onClick={() => router.push('/menu')} className="landing-button">
-        I Missed You Bubu
-      </h1>
-    </div>
-  )
-}
+[
+  {
+    "title": "The Effort That Hit Me",
+    "content": "You know… it’s not the big flashy stuff that sticks… it’s the little things… the way you actually stayed up, showed efforts..."
+  },
+  {
+    "title": "The Appreciation That Stays",
+    "content": "And you know… it’s crazy… how even after all that… I can’t help but replay it in my head…"
+  },
+  {
+    "title": "Lasting Presence",
+    "content": "It’s funny how some people just… stick. Not because they demand it..."
+  },
+  {
+    "title": "The Subtle Strength",
+    "content": "There’s a quiet power in you I can’t ignore. It’s not the loud kind..."
+  },
+  {
+    "title": "The Unspoken Connection",
+    "content": "Some connections don’t need to be explained. Ours is one of those..."
+  },
+  {
+    "title": "The Moments You Carve",
+    "content": "It’s funny how some moments stick, not because they’re big or loud..."
+  },
+  {
+    "title": "The Flower in the Rain",
+    "content": "I was having one of those days where everything felt heavier than usual..."
+  },
+  {
+    "title": "Even in Exams??",
+    "content": "I was in the middle of one of those college quiz exams that felt impossible..."
+  },
+  {
+    "title": "You in Disguise",
+    "content": "I was walking home one evening from college, the kind of evening where the sky..."
+  },
+  {
+    "title": "Books and Her",
+    "content": "I was buried under a mountain of books, notes scattered like a storm had passed..."
+  }
+]
