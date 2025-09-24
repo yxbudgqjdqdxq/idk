@@ -6,22 +6,21 @@ export default function Home() {
   const [entered, setEntered] = useState(false)
 
   return (
-    <div className="main-container">
+    <main className="main-container">
       {!entered ? (
-        <button className="big-button" onClick={() => setEntered(true)}>
+        <button className="landing-btn" onClick={() => setEntered(true)}>
           I Missed You Bubu
         </button>
       ) : (
-        <div className="button-container">
-          <Link href="/paragraphs" passHref>
-            <button className="sexy-button">Feeling Moody Today?</button>
+        <div className="choices">
+          <Link href="/paragraphs" legacyBehavior>
+            <a className="choice-btn">Feeling Moody Today?</a>
           </Link>
-
-          <Link href="/chat" passHref>
-            <button className="sexy-button">Daily Affirmations</button>
+          <Link href="/chat" legacyBehavior>
+            <a className="choice-btn">Daily Affirmations</a>
           </Link>
         </div>
       )}
-    </div>
+    </main>
   )
 }
