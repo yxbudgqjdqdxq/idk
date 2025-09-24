@@ -4,7 +4,7 @@ import paragraphs from '../public/data/paragraphs.json'
 
 export default function Paragraphs() {
   return (
-    <main className="page center" style={{ padding: 48 }}>
+    <main className="paragraphs-page">
       <h2 className="page-title">Pick a Thought</h2>
 
       <div className="paragraph-grid">
