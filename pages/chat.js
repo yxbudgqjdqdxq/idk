@@ -1,30 +1,40 @@
-import { useState } from 'react';
+// pages/chat.js
+import { useState, useRef, useEffect } from 'react'
 
 export default function Chat() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([{ id: 'init', from: 'bot', text: "You're seen. You're cherished. 💌" }])
+  const [input, setInput] = useState('')
+  const ref = useRef(null)
 
-  async function sendMessage() {
-    const res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: input })
-    });
-    const data = await res.json();
-    setMessages([...messages, { role: 'user', content: input }, { role: 'assistant', content: data.reply }]);
-    setInput('');
+  useEffect(() => {
+    if (ref.current) ref.current.scrollTop = ref.current.scrollHeight
+  }, [messages])
+
+  async function send() {
+    if (!input.trim()) return
+    const user = { id: Date.now(), from: 'user', text: input.trim() }
+    setMessages(m => [...m, user])
+    setInput('')
+    // Basic local reply so chat page works even without OpenAI key
+    setTimeout(() => {
+      setMessages(m => [...m, { id: Date.now()+1, from: 'bot', text: "You matter. I'm proud of you." }])
+    }, 600)
   }
 
   return (
-    <div className="chat">
-      <h1>Daily Affirmations</h1>
-      <div className="messages">
-        {messages.map((m, i) => (
-          <p key={i}><b>{m.role}:</b> {m.content}</p>
-        ))}
+    <main className="chat-page">
+      <h2 className="page-title">Daily Affirmations</h2>
+      <div className="chat-shell">
+        <div className="messages" ref={ref}>
+          {messages.map(m => (
+            <div key={m.id} className={`bubble ${m.from==='user'?'me':'them'}`}><p>{m.text}</p></div>
+          ))}
+        </div>
+        <div className="chat-controls">
+          <input value={input} onChange={e=>setInput(e.target.value)} placeholder="Ask for a sweet line..." onKeyDown={e=>{if(e.key==='Enter') send()}} />
+          <button onClick={send} className="send">Send</button>
+        </div>
       </div>
-      <input value={input} onChange={e => setInput(e.target.value)} />
-      <button onClick={sendMessage}>Send</button>
-    </div>
-  );
+    </main>
+  )
 }
