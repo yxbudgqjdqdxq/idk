@@ -92,3 +92,40 @@ body::before {
   position: relative;
   z-index: 2;
 }
+/* paragraph grid */
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 28px;
+  color: #222;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.paragraph-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1080px;
+}
+
+/* sexy paragraph buttons */
+.para-button {
+  padding: 18px 22px;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fad0c4 100%);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.para-button:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
