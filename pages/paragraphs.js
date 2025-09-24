@@ -10,7 +10,13 @@ export default function Paragraphs() {
       <div className="paragraph-grid">
         {paragraphs.map((p, i) => (
           <Link key={p.id ?? i} href={`/paragraphs/${i}`} legacyBehavior>
-            <button className="para-button">{p.title}</button>
+            <a className="para-button" aria-label={p.title}>
+              <div className="para-left">
+                <div className="para-tag">#{(i + 1).toString().padStart(2, '0')}</div>
+                <div className="para-title">{p.title}</div>
+              </div>
+              <div className="para-arrow">→</div>
+            </a>
           </Link>
         ))}
       </div>
